@@ -10,10 +10,14 @@ module.exports = {
           neutral: "#3d4451",
           "base-100": "#ffffff",
         },
+        backgroundImage: {
+          "hero-pattern": "url('/src/assets/images/bg.png')",
+          // "footer-texture": "url('/img/footer-texture.png')",
+        },
       },
       "dark",
       "cupcake",
     ],
   },
   plugins: [require("daisyui")],
-}
+};

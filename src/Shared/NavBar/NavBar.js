@@ -2,18 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-    const menuItem = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
-        <li><Link to='/contactUs'>Contact Us</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+  const menuItem = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/appointment">Appointment</Link>
+      </li>
+      <li>
+        <Link to="/reviews">Reviews</Link>
+      </li>
+      <li>
+        <Link to="/contactUs">Contact Us</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
     </>
+  );
 
   return (
-
-     
     <div class="navbar bg-base-100">
       <div class="navbar-start">
         <div class="dropdown">
@@ -37,21 +49,17 @@ const NavBar = () => {
             tabindex="0"
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-           
-                {menuItem}
-              
+            {menuItem}
           </ul>
         </div>
-        <Link to='/' class="btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+        <Link to="/" class="btn btn-ghost normal-case text-xl">
+          Doctors Portal
+        </Link>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
-          {menuItem}
-        </ul>
+      <div class="navbar-end hidden lg:flex">
+        <ul class="menu menu-horizontal p-0">{menuItem}</ul>
       </div>
-      
     </div>
- 
   );
 };
 
