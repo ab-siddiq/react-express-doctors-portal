@@ -11,16 +11,20 @@ const DentalCare = () => {
     img: treatment,
   };
   return (
-    <div class="card lg:card-side bg-base-100 shadow-xl mt-28">
-      <div className="flex content-center">
-        <figure>
-          <img src={care.img} alt="Album" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">{care.title}</h2>
-          <p>{care.description}</p>
-          <div class="card-actions ">
-            <button class="btn btn-primary">{care.ctaText}</button>
+    <div class="card lg:card-side bg-base-100 shadow-xl mt-28 mx-96">
+      <div className="grid grid-cols-2 content-center">
+        <div className="">
+          <figure>
+            <img src={care.img} className="h-auto w-96" alt="Album" />
+          </figure>
+        </div>
+        <div class=" w-full grid content-center px-7">
+          <div>
+            <h2 class="card-title text-5xl mb-5">{care.title}</h2>
+            <p>{care.description}</p>
+            <div class="card-actions mt-5">
+              <button class="btn btn-primary">{care.ctaText}</button>
+            </div>
           </div>
         </div>
       </div>
