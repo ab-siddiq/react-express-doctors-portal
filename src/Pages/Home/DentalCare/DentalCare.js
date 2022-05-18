@@ -11,11 +11,11 @@ const DentalCare = () => {
     img: treatment,
   };
   return (
-    <div class="card lg:card-side bg-base-100 shadow-xl mt-28 mx-96">
+    <div class="card lg:card-side bg-base-100  mt-28 mx-96">
       <div className="grid grid-cols-2 content-center">
         <div className="">
           <figure>
-            <img src={care.img} className="h-auto w-96" alt="Album" />
+            <img src={care.img} className="h-auto w-96 rounded" alt="Album" />
           </figure>
         </div>
         <div class=" w-full grid content-center px-7">
