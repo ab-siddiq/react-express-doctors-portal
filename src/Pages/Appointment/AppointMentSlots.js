@@ -12,7 +12,7 @@ const AppointMentSlots = () => {
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-28 px-12 pt-28">
       {services.map((service) => (
-        <AppointmentSlot></AppointmentSlot>
+        <AppointmentSlot key={service._id} service={service}></AppointmentSlot>
       ))}
     </div>
   );

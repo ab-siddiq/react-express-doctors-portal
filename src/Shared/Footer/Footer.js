@@ -4,7 +4,7 @@ import footer from "../../assets/images/footer.png";
 const Footer = () => {
   return (
     <footer
-      class=" p-10 bg-base-300 text-base-content"
+      class=" px-12 bg-base-300 text-base-content pt-28"
       style={{ background: `url(${footer})`, backgroundSize: "cover" }}
     >
       <div className="footer">

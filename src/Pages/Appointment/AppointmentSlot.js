@@ -1,13 +1,27 @@
 import React from "react";
 
-const AppointmentSlot = () => {
+const AppointmentSlot = ({ service }) => {
+  const { name, slots } = service;
   return (
-    <div class="card w-full bg-primary text-primary-content">
-      <div class="card-body">
-        <h2 class="card-title">Card title!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div class="card-actions justify-end">
-          <button class="btn">Buy Now</button>
+    <div class="card w-full outline text-center">
+      <div class="card-body ">
+        <h2 class="font-bold text-xl text-primary">{service.name}</h2>
+
+        <p>
+          {slots.length > 1 ? (
+            <span>{slots[0]}</span>
+          ) : (
+            <span className="text-red-500">Not available</span>
+          )}
+        </p>
+        <p>
+          {slots.length}
+          {slots.length > 1 ? " spaces" : " space"} available
+        </p>
+        <div class="card-actions justify-center">
+          <button class="btn uppercase bg-primary text-white">
+            book appointment
+          </button>
         </div>
       </div>
     </div>
