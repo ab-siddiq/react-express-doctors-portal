@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import AppointmentSlot from "./AppointmentSlot";
+import { format } from "date-fns";
+import MakeAppointmentModal from "./MakeAppointmentModal";
 
-const AppointMentSlots = () => {
+const AppointMentSlots = ({ date }) => {
   const [services, setServices] = useState([]);
+  const [makeAppointment, setMakeAppointment] = useState(null);
   console.log("p", services);
   useEffect(() => {
     fetch("services.json")
@@ -10,10 +13,25 @@ const AppointMentSlots = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-28 px-12 pt-28">
-      {services.map((service) => (
-        <AppointmentSlot key={service._id} service={service}></AppointmentSlot>
-      ))}
+    <div className="px-12 pt-28">
+      <h1 class=" font-bold text-center mb-10">
+        Available Appointment On: {format(date, "PP")}
+      </h1>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-28 ">
+        {services.map((service) => (
+          <AppointmentSlot
+            key={service._id}
+            service={service}
+            setMakeAppointment={setMakeAppointment}
+          ></AppointmentSlot>
+        ))}
+      </div>
+      {makeAppointment && (
+        <MakeAppointmentModal
+          makeAppointment={makeAppointment}
+          date={date}
+        ></MakeAppointmentModal>
+      )}
     </div>
   );
 };
