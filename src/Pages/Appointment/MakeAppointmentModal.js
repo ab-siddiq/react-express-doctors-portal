@@ -14,7 +14,7 @@ const MakeAppointmentModal = ({ makeAppointment, date }) => {
             ✕
           </label>
           <h3 class="font-bold text-primary text-center text-lg mb-4">
-            Book > {makeAppointment.name}
+            Book {makeAppointment.name}
           </h3>
           <form>
             <div className="grid gap-5 justify-items-center">
