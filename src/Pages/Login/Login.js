@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import auth from "../../firebase.init";
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 const Login = () => {
   // const [user, setUser] = useState({});
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const { register, formState: { errors }, handleSubmit,} = useForm();
-
-  if(gUser){
-    console.log(gUser)
+  const navigate = useNavigate();
+  if(gUser || user){
+    navigate('/dashboard')
   }
   if(loading || gLoading){
     return <Loading></Loading>;
   }
+  let loginErrorMessage ;
+  if(error || gError){
+    return loginErrorMessage = <p>{error?.message || gError?.message}</p>;
+;
+  }
   const onSubmit = (data) => {
     console.log(data);
-    createUserWithEmailAndPassword(data.email,data.password);
+    signInWithEmailAndPassword(data.email, data.password);
   };
   return (
     <div className="flex justify-center items-center h-screen">
@@ -32,7 +38,7 @@ const Login = () => {
               </label>
               <input
                 type="email"
-                placeholder="Your name"
+                placeholder="Your email"
                 className="input input-bordered w-full max-w-xs"
                 {...register("email", {
                   required: {
@@ -84,9 +90,14 @@ const Login = () => {
             <div className="flex justify-end">
               <button className="btn btn-primary w-full">Login</button>
             </div>
+            <label className="label">
+              <span className="label-text-alt text-red-600">{loginErrorMessage}</span>
+            </label>
           </form>
           <p className="text-center">
-            New here? <Link className="text-secondary" to='/register'>Create an account.</Link>
+            New here? <Link className="text-secondary" to="/register">
+              Create an account.
+            </Link>
           </p>
           <div className="divider">OR</div>
           <button
