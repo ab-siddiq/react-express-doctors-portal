@@ -24,8 +24,8 @@ const MakeAppointment = () => {
           look like readable English. Many desktop publishing packages and web
           page
         </p>
-        <div class="card-actions mt-5">
-          <button class="btn btn-primary uppercase">Get Started</button>
+        <div className="card-actions mt-5">
+          <button className="btn btn-primary uppercase">Get Started</button>
         </div>
       </div>
     </section>

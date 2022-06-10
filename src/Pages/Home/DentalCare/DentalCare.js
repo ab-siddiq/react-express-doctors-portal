@@ -11,19 +11,19 @@ const DentalCare = () => {
     img: treatment,
   };
   return (
-    <div class="flex justify-center lg:card-side bg-base-100  mt-28 ">
+    <div className="flex justify-center lg:card-side bg-base-100  mt-28 ">
       <div className="card grid md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1  gap-10  lg:w-1/2 sm:w-full content-center">
         <div className="">
           <figure>
             <img src={care.img} className="h-auto w-96 rounded" alt="Album" />
           </figure>
         </div>
-        <div class=" w-full grid content-center ">
+        <div className=" w-full grid content-center ">
           <div>
-            <h2 class="card-title text-5xl mb-5">{care.title}</h2>
+            <h2 className="card-title text-5xl mb-5">{care.title}</h2>
             <p>{care.description}</p>
-            <div class="card-actions mt-5">
-              <button class="btn btn-primary">{care.ctaText}</button>
+            <div className="card-actions mt-5">
+              <button className="btn btn-primary">{care.ctaText}</button>
             </div>
           </div>
         </div>

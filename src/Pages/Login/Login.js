@@ -29,27 +29,27 @@ const Login = () => {
           type="email"
           name="email"
           placeholder="enter email"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
         />
 
         <input
           type="password"
           name="password"
           placeholder="enter password"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
         />
         <input
           type="submit"
           value="login"
-          class="input input-bordered w-full max-w-xs"
+          className="input input-bordered w-full max-w-xs"
         />
       </form> */}
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <div class="card-body">
-          <h2 class="card-title">Please Login!</h2>
-          <div class="divider">OR</div>
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title">Please Login!</h2>
+          <div className="divider">OR</div>
           <button
-            class="btn btn-outline btn-secondary"
+            className="btn btn-outline btn-secondary"
             onClick={()=>signInWithGoogle()}
           >
             Sign in with Google

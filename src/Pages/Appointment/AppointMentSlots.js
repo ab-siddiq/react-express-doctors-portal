@@ -14,7 +14,7 @@ const AppointMentSlots = ({ date }) => {
   }, []);
   return (
     <div className="px-12 pt-28">
-      <h1 class=" font-bold text-center mb-10">
+      <h1 className=" font-bold text-center mb-10">
         Available Appointment On: {format(date, "PP")}
       </h1>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-28 ">

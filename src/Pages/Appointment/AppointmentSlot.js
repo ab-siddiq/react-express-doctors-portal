@@ -3,9 +3,9 @@ import React from "react";
 const AppointmentSlot = ({ service, setMakeAppointment }) => {
   const { name, slots } = service;
   return (
-    <div class="card w-full outline text-center">
-      <div class="card-body ">
-        <h2 class="font-bold text-xl text-primary">{service.name}</h2>
+    <div className="card w-full outline text-center">
+      <div className="card-body ">
+        <h2 className="font-bold text-xl text-primary">{service.name}</h2>
 
         <p>
           {slots.length > 1 ? (
@@ -18,12 +18,12 @@ const AppointmentSlot = ({ service, setMakeAppointment }) => {
           {slots.length}
           {slots.length > 1 ? " spaces" : " space"} available
         </p>
-        <div class="card-actions justify-center">
+        <div className="card-actions justify-center">
           <label
             for="appointment-modal"
             disabled={slots.length === 0}
             onClick={() => setMakeAppointment(service)}
-            class="btn uppercase bg-primary text-white"
+            className="btn uppercase bg-primary text-white"
           >
             book appointment
           </label>
