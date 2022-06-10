@@ -13,7 +13,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   let from = location.state?.from?.pathname || "/";
   if(gUser || user){
     navigate(from, {replace: true});
@@ -34,7 +34,7 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title">Please Login!</h2>
+          <h2 className="card-title flex justify-center">Please Login!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -95,11 +95,14 @@ const Login = () => {
               <button className="btn btn-primary w-full">Login</button>
             </div>
             <label className="label">
-              <span className="label-text-alt text-red-600">{loginErrorMessage}</span>
+              <span className="label-text-alt text-red-600">
+                {loginErrorMessage}
+              </span>
             </label>
           </form>
           <p className="text-center">
-            New here? <Link className="text-secondary" to="/register">
+            New here?{" "}
+            <Link className="text-secondary" to="/register">
               Create an account.
             </Link>
           </p>
