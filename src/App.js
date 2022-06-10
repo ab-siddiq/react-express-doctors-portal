@@ -5,6 +5,7 @@ import Appointment from "./Pages/Appointment/Appointment";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Shared/Footer/Footer";
 import NavBar from "./Shared/NavBar/NavBar";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/contactUs" element={<ContactUs></ContactUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         {/* <Route path='/' element={}></Route> */}
       </Routes>
       <Footer></Footer>
