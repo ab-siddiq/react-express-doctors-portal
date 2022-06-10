@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../Shared/Loading";
 const Login = () => {
   // const [user, setUser] = useState({});
@@ -10,9 +10,13 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const { register, formState: { errors }, handleSubmit,} = useForm();
+
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  let from = location.state?.from?.pathname || "/";
   if(gUser || user){
-    navigate('/dashboard')
+    navigate(from, {replace: true});
   }
   if(loading || gLoading){
     return <Loading></Loading>;

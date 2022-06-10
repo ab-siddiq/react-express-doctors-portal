@@ -6,6 +6,7 @@ import ContactUs from "./Pages/ContactUs/ContactUs";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import RequireAuth from "./Pages/Login/RequireAuth";
 import Register from "./Pages/Register/Register";
 import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Shared/Footer/Footer";
@@ -20,7 +21,11 @@ function App() {
         <Route path="/about" element={<About></About>}></Route>
         <Route
           path="/appointment"
-          element={<Appointment></Appointment>}
+          element={
+            <RequireAuth>
+              <Appointment></Appointment>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/contactUs" element={<ContactUs></ContactUs>}></Route>

@@ -20,7 +20,7 @@ const AppointmentSlot = ({ service, setMakeAppointment }) => {
         </p>
         <div className="card-actions justify-center">
           <label
-            for="appointment-modal"
+            htmlFor="appointment-modal"
             disabled={slots.length === 0}
             onClick={() => setMakeAppointment(service)}
             className="btn uppercase bg-primary text-white"
