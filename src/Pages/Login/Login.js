@@ -20,52 +20,59 @@ const Login = () => {
         <div className="card-body">
           <h2 className="card-title">Please Login!</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Your name"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email is required!",
+                  },
                   pattern: {
                     value: /[A-Za-z]{3}/,
-                    message: "error message", // JS only: <p>error message</p> TS only support string
+                    message: "Provide valid email!", // JS only: <p>error message</p> TS only support string
                   },
                 })}
               />
-              <label class="label">
-                <span class="label-text-alt">
-                  {errors.email?.type === "required" &&
-                    "First name is required"}
+              <label className="label">
+                <span className="label-text-alt text-red-600">
+                  {errors.email?.type === "required" && "email is required"}
                 </span>
               </label>
             </div>
 
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="Your password"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is required!",
+                  },
                   pattern: {
-                    value: /[A-Za-z]{3}/,
-                    message: "error message", // JS only: <p>error message</p> TS only support string
+                    value: 3,
+                    message: "Provide valid password", // JS only: <p>error message</p> TS only support string
                   },
                 })}
               />
-              <label class="label">
-                <span class="label-text-alt">
-                  {errors.password && "Last name is required"}
+              <label className="label">
+                <span className="label-text-alt text-red-600">
+                  {errors.password && "password is required"}
                 </span>
               </label>
             </div>
             <div className="flex justify-end">
-              <button class="btn btn-primary w-full">Login</button>
+              <button className="btn btn-primary w-full">Login</button>
             </div>
           </form>
           <div className="divider">OR</div>

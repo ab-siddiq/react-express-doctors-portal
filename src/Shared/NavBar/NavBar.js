@@ -16,7 +16,7 @@ const NavBar = () => {
       <li>
         <Link to="/reviews">Reviews</Link>
       </li>
-      <li>className=
+      <li>
         <Link to="/contactUs">Contact Us</Link>
       </li>
       <li>
