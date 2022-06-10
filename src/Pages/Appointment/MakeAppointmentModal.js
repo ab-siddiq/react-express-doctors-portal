@@ -1,7 +1,10 @@
 import React from "react";
 import { format } from "date-fns";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init";
 
 const MakeAppointmentModal = ({ makeAppointment, date }) => {
+  const [user] = useAuthState(auth);
   const handleAppointmentOnSubmit = (e) => {
     e.preventDefault();
     const appointmentFor = makeAppointment.name;
@@ -43,6 +46,7 @@ const MakeAppointmentModal = ({ makeAppointment, date }) => {
                 name="date"
                 placeholder="date"
                 value={format(date, "PP")}
+                disabled
                 className="input input-bordered  w-full max-w-xs"
               />
               <select
@@ -56,12 +60,16 @@ const MakeAppointmentModal = ({ makeAppointment, date }) => {
               <input
                 type="text"
                 name="name"
+                value={user.displayName}
+                disabled
                 placeholder="your name"
                 className="input input-bordered  w-full max-w-xs"
               />
               <input
                 type="email"
                 name="email"
+                value={user.email}
+                disabled
                 placeholder="your email"
                 className="input input-bordered  w-full max-w-xs"
               />
