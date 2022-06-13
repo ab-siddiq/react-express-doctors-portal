@@ -12,6 +12,7 @@ import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Shared/Footer/Footer";
 import NavBar from "./Shared/NavBar/NavBar";
 import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

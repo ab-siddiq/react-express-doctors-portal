@@ -6,7 +6,7 @@ import MakeAppointmentModal from "./MakeAppointmentModal";
 const AppointMentSlots = ({ date }) => {
   const [services, setServices] = useState([]);
   const [makeAppointment, setMakeAppointment] = useState(null);
-  console.log("p", services);
+  console.log("p", {makeAppointment});
   useEffect(() => {
     fetch("services.json")
       .then((res) => res.json())
@@ -28,6 +28,7 @@ const AppointMentSlots = ({ date }) => {
       </div>
       {makeAppointment && (
         <MakeAppointmentModal
+        key={makeAppointment._id}
           makeAppointment={makeAppointment}
           date={date}
           setMakeAppointment={setMakeAppointment}
