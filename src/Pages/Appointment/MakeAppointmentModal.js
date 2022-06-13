@@ -2,6 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
+import { toast } from 'react-toastify';
 
 const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment }) => {
   const [user] = useAuthState(auth);
@@ -24,10 +25,13 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment }) => 
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('inserted')
+        // alert('inserted')
         console.log(data)
+        if(data.success){
+          toast(`Appointment booked on  at ${slot}`)
+        }
+        setMakeAppointment(null);
       });
-      setMakeAppointment(null);
   };
   return (
     <div>
