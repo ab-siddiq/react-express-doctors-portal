@@ -11,6 +11,7 @@ import Register from "./Pages/Register/Register";
 import Reviews from "./Pages/Reviews/Reviews";
 import Footer from "./Shared/Footer/Footer";
 import NavBar from "./Shared/NavBar/NavBar";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         {/* <Route path='/' element={}></Route> */}
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </div>
   );

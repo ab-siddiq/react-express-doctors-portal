@@ -30,6 +30,7 @@ const AppointMentSlots = ({ date }) => {
         <MakeAppointmentModal
           makeAppointment={makeAppointment}
           date={date}
+          setMakeAppointment={setMakeAppointment}
         ></MakeAppointmentModal>
       )}
     </div>

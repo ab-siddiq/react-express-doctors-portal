@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
 
-const MakeAppointmentModal = ({ makeAppointment, date }) => {
+const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment }) => {
   const [user] = useAuthState(auth);
   const handleAppointmentOnSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +23,11 @@ const MakeAppointmentModal = ({ makeAppointment, date }) => {
       body: JSON.stringify(appointment),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        alert('inserted')
+        console.log(data)
+      });
+      setMakeAppointment(null);
   };
   return (
     <div>
@@ -79,9 +83,11 @@ const MakeAppointmentModal = ({ makeAppointment, date }) => {
                 placeholder="your phone number"
                 className="input input-bordered  w-full max-w-xs"
               />
+              
               <input
                 type="submit"
                 value="submit"
+                htmlFor="appointment-modal"
                 className="input bg-primary  w-full max-w-xs"
               />
             </div>
