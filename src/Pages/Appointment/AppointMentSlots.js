@@ -8,9 +8,12 @@ const AppointMentSlots = ({ date }) => {
   const [makeAppointment, setMakeAppointment] = useState(null);
   console.log("p", {makeAppointment});
   useEffect(() => {
-    fetch("services.json")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
-      .then((data) => setServices(data));
+      .then((data) => {
+        console.log(data)
+        setServices(data);
+      });
   }, []);
   return (
     <div className="px-12 pt-28">
