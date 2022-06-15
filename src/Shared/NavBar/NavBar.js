@@ -26,12 +26,19 @@ const NavBar = () => {
       <li>
         <Link to="/contactUs">Contact Us</Link>
       </li>
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashborad</Link>
+        </li>
+      )}
       <li>
-        {
-        user ?
-        <Link onClick={   logout } to="/login">Logout</Link> :
-        <Link to="/login">Login</Link>
-        }
+        {user ? (
+          <Link onClick={logout} to="/login">
+            Logout
+          </Link>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
       </li>
     </>
   );

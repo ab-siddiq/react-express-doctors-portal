@@ -9,7 +9,7 @@ import Loading from './../../Shared/Loading';
 const AppointMentSlots = ({ date }) => {
   // const [services, setServices] = useState([]);
   const [makeAppointment, setMakeAppointment] = useState(null);
-  console.log("p", {makeAppointment});
+  // console.log("p", {makeAppointment});
   const formattedDate = format(date, "PP");
   const {data: services, loading, refetch} = useQuery(['available',formattedDate], ()=>fetch(`http://localhost:5000/available?date=${formattedDate}`)
       .then((res) => res.json()))

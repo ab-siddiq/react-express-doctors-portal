@@ -29,11 +29,15 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        }></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/contactUs" element={<ContactUs></ContactUs>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         {/* <Route path='/' element={}></Route> */}
       </Routes>
       <ToastContainer />
