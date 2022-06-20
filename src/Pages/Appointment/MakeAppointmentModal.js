@@ -52,7 +52,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <label
-            htmlhtmlFor="appointment-modal"
+            htmlFor="appointment-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
@@ -104,7 +104,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
               <input
                 type="submit"
                 value="submit"
-                htmlhtmlFor="appointment-modal"
+                htmlFor="appointment-modal"
                 className="input bg-primary  w-full max-w-xs"
               />
             </div>
