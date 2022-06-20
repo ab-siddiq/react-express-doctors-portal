@@ -1,4 +1,3 @@
-import React from "react";
 
 const AppointmentSlot = ({ service, setMakeAppointment }) => {
   const { name, slots } = service;
@@ -20,7 +19,7 @@ const AppointmentSlot = ({ service, setMakeAppointment }) => {
         </p>
         <div className="card-actions justify-center">
           <label
-            htmlFor="appointment-modal"
+            htmlhtmlFor="appointment-modal"
             disabled={slots.length === 0}
             onClick={() => setMakeAppointment(service)}
             className="btn uppercase bg-primary text-white"

@@ -1,8 +1,7 @@
-import React from "react";
 import { format } from "date-fns";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from "../../firebase.init";
 import { toast } from 'react-toastify';
+import auth from "../../firebase.init";
 
 const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetch }) => {
   const {_id,name,slots,price} = makeAppointment;
@@ -53,7 +52,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <label
-            htmlFor="appointment-modal"
+            htmlhtmlFor="appointment-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
@@ -105,7 +104,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
               <input
                 type="submit"
                 value="submit"
-                htmlFor="appointment-modal"
+                htmlhtmlFor="appointment-modal"
                 className="input bg-primary  w-full max-w-xs"
               />
             </div>

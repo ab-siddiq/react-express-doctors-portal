@@ -1,5 +1,4 @@
 import { signOut } from "firebase/auth";
-import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
@@ -79,8 +78,8 @@ const NavBar = () => {
       </div>
       <div className="navbar-end lg:flex lg:hidden">
         <label
-          for="my-drawer-2"
-          class="btn btn-primary drawer-button lg:hidden"
+          htmlFor="my-drawer-2"
+          className="btn btn-primary drawer-button lg:hidden"
         >
         
             <svg
