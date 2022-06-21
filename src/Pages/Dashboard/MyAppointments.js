@@ -11,7 +11,12 @@ const MyAppointments = () => {
     const [user,loading] = useAuthState(auth);
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/appointment?patient=${user.email}`)
+        fetch(`http://localhost:5000/appointment?patient=${user.email}`,{
+          method: 'GET',
+          headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+          }
+        })
         .then(res=>res.json())
         .then(data=>setAppointments(data))
     },[user])
