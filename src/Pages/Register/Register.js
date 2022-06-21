@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [token] = useToken(user);
     if (token) {
-      console.log(user,'user');
+      navigate('/appointment');
     }
     if (loading ) {
       return <Loading></Loading>;
