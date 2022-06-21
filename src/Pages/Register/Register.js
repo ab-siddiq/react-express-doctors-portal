@@ -4,11 +4,12 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
+import useToken from './../../hooks/useToken';
 const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const {  register,  formState: { errors },  handleSubmit,   } = useForm();
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
-
+    const [token] = useToken();
     if (user) {
       console.log(user,'user');
     }
