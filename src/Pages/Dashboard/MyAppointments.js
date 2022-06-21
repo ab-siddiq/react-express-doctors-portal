@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const MyAppointments = () => {
     const [appointments,setAppointments] = useState([]);
     console.log('apo',appointments)
     const [user,loading] = useAuthState(auth);
+    const navigate = useNavigate();
     
     useEffect(()=>{
         fetch(`http://localhost:5000/appointment?patient=${user.email}`,{
@@ -17,8 +19,15 @@ const MyAppointments = () => {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
           }
         })
-        .then(res=>res.json())
-        .then(data=>setAppointments(data))
+        .then(res=>{
+          if(res.status === 401 || res.status === 403){
+            return navigate('/');
+          }
+          return res.json();
+        })
+        .then(data=>{
+            setAppointments(data);
+        })
     },[user])
     if(loading){
       return <Loading></Loading>;
