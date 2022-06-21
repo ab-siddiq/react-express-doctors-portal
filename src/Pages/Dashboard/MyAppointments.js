@@ -3,16 +3,21 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../../Shared/Loading';
 
 const MyAppointments = () => {
     const [appointments,setAppointments] = useState([]);
     console.log('apo',appointments)
-    const [user] = useAuthState(auth);
+    const [user,loading] = useAuthState(auth);
+    
     useEffect(()=>{
-        fetch(`http://localhost:5000/appointment?patient=${user?.email}`)
+        fetch(`http://localhost:5000/appointment?patient=${user.email}`)
         .then(res=>res.json())
         .then(data=>setAppointments(data))
-    },[])
+    },[user])
+    if(loading){
+      return <Loading></Loading>;
+    }
     return (
       <div class="overflow-x-auto">
         {appointments.length !==0 ? (
