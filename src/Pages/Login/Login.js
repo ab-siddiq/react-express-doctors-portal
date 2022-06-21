@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -14,11 +14,16 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const [token] = useToken(gUser);
+  const [token] = useToken( user || gUser);
   let from = location.state?.from?.pathname || "/";
-  if(gUser || user){
-    navigate(from, {replace: true});
-  }
+  useEffect(()=>{
+    if(token){
+      navigate(from,{replace:true});
+    }
+  },[from,token,navigate])
+  // if(gUser || user){
+  //   navigate(from, {replace: true});
+  // }
   if(loading || gLoading){
     return <Loading></Loading>;
   }
