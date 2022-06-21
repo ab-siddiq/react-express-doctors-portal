@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
 import useToken from './../../hooks/useToken';
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const {  register,  formState: { errors },  handleSubmit,   } = useForm();
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
-    const [token] = useToken();
-    if (user) {
+    const navigate = useNavigate();
+    const [token] = useToken(user);
+    if (token) {
       console.log(user,'user');
     }
     if (loading ) {
@@ -23,6 +25,7 @@ const Register = () => {
     const onSubmit = async data => {
       await createUserWithEmailAndPassword(data.email,data.password);
       await updateProfile({ displayName: data.name, phoneNumber: data.phone });
+
     };
     return (
       <div className="flex justify-center items-center h-screen">
