@@ -47,7 +47,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
       });
   };
   return (
-    <div>
+    <div key={_id}>
       <input type="checkbox" id="appointment-modal" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
@@ -61,7 +61,7 @@ const MakeAppointmentModal = ({ makeAppointment, date, setMakeAppointment,refetc
             Book {name}
           </h3>
           <form onSubmit={handleAppointmentOnSubmit}>
-            <div className="grid gap-5 justify-items-center">
+            <div className="grid gap-5 justify-items-center" >
               <input
                 type="text"
                 name="date"

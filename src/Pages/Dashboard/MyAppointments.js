@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../../Shared/Loading';
+import { signOut } from 'firebase/auth';
 
 const MyAppointments = () => {
     const [appointments,setAppointments] = useState([]);
@@ -18,8 +19,10 @@ const MyAppointments = () => {
           },
         })
           .then((res) => {
-            console.log(res, "res");
+            // console.log(res, "res");
             if (res.status === 401 || res.status === 403) {
+              signOut(auth);
+              localStorage.removeItem("accessToken");
               return navigate("/");
             }
             return res.json();

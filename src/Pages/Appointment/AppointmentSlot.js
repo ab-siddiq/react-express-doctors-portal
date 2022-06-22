@@ -1,6 +1,6 @@
 
 const AppointmentSlot = ({ service, setMakeAppointment }) => {
-  const { name, slots } = service;
+  const { _id,name, slots } = service;
   return (
     <div className="card w-full outline text-center">
       <div className="card-body ">
@@ -19,6 +19,7 @@ const AppointmentSlot = ({ service, setMakeAppointment }) => {
         </p>
         <div className="card-actions justify-center">
           <label
+            key={_id}
             htmlFor="appointment-modal"
             disabled={slots.length === 0}
             onClick={() => setMakeAppointment(service)}
