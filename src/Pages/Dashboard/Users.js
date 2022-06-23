@@ -26,6 +26,7 @@ const Users = () => {
             <th>Avatar</th>
             <th>Email</th>
             <th>Id</th>
+            <th>Role</th>
             <th>Action</th>
           </tr>
         </thead>

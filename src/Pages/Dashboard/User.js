@@ -1,29 +1,47 @@
 import React from "react";
+import { toast } from 'react-toastify';
 const User = ({ user, refetch, index }) => {
   // console.log(user)
-  const { email, role } = user;
+  const { _id,email, role } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${user.email}`, {
+    fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if(res.status === 403){
+          toast.error('Unauthorized!');
+        }
+        return res.json();
+      })
       .then((data) => {
-        refetch();
+        if(data.modifiedCount > 0){
+
+          refetch();
+          toast.success('Make admin successfully!');
+        }
       });
   };
   const makeUser = () => {
-    fetch(`http://localhost:5000/user/user/${user.email}`, {
+    fetch(`http://localhost:5000/user/user/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if(res.status === 403){
+          toast.error('Unauthorized!');
+        }
+        return res.json()
+      })
       .then((data) => {
-        refetch();
+        if (data.modifiedCount > 0) {
+          refetch();
+          toast.success("Make admin successfully!");
+        }
       });
   };
   return (
@@ -37,8 +55,9 @@ const User = ({ user, refetch, index }) => {
           />
         </div>
       </td>
-      <td>{user.email}</td>
-      <td>{user._id}</td>
+      <td>{email}</td>
+      <td>{_id}</td>
+      <td>{role}</td>
       <td>
         
         {role !== "admin" || !role ? (
